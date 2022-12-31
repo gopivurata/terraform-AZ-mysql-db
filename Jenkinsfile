@@ -10,7 +10,8 @@ pipeline {
         stage ('terraform_multi_az_db') {
             steps {
                 sh 'terraform init'
-                sh 'terraform apply -var-file="dev.tfvars -auto-approve"'
+                //sh 'terraform apply -var-file="dev.tfvars" -auto-approve'
+                sh 'terraform destroy -var-file="dev.tfvars" -auto-approve'
             }
         }
     }
